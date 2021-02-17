@@ -18,7 +18,10 @@ const slice = createSlice({
   reducers: {
     lastKnownMeasurementsDataReceived: (state, action: PayloadAction<LastKnownMeasurement>) => {
       const p = action.payload;
-      state.lastKnownMeasurements = [...state.lastKnownMeasurements, p.lastKnownMeasurement];
+      const existingIndex = state.lastKnownMeasurements.findIndex(lm => lm.metric === p.lastKnownMeasurement.metric);
+      if (existingIndex < 0) {
+        state.lastKnownMeasurements = [...state.lastKnownMeasurements, p.lastKnownMeasurement];
+      }
     },
     lastKnownMeasurementsApiErrorReceived: (state, action: PayloadAction<ApiErrorAction>) => state,
     newMeasurementsDataReceived: (state, action: PayloadAction<NewMeasurement>) => {
