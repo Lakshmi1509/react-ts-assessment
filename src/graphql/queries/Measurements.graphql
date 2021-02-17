@@ -1,0 +1,8 @@
+query GetMeasurements($input: MeasurementQuery) {
+  getMeasurements(input: $input) {
+    metric
+    at
+    value
+    unit
+  }
+}

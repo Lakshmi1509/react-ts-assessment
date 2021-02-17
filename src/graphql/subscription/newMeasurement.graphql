@@ -1,0 +1,8 @@
+subscription NewMeasurement {
+  newMeasurement {
+    metric
+    at
+    value
+    unit
+  }
+}

@@ -1,0 +1,8 @@
+query GetLastKnownMeasurement($metricName: String!) {
+  getLastKnownMeasurement(metricName: $metricName) {
+    metric
+    at
+    value
+    unit
+  }
+}
